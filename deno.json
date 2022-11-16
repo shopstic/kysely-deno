@@ -1,0 +1,13 @@
+{
+  "fmt": {
+    "files": {
+      "include": [
+        "src/",
+        "test/"
+      ]
+    },
+    "options": {
+      "lineWidth": 120
+    }
+  }
+}
