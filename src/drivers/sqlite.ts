@@ -1,7 +1,7 @@
 import {
   SqliteDatabase as ISqliteDatabase,
   SqliteStatement as ISqliteStatement,
-} from "https://esm.sh/@shopstic/kysely@0.22.0";
+} from "https://esm.sh/@shopstic/kysely@0.22.1";
 import {
   BindValue,
   Database as Sqlite3Database,

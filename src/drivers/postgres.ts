@@ -3,7 +3,7 @@ import {
   PostgresPool as IPostgresPool,
   PostgresPoolClient as IPostgresPoolClient,
   PostgresQueryResult as IPostgresQueryResult,
-} from "https://esm.sh/@shopstic/kysely@0.22.0";
+} from "https://esm.sh/@shopstic/kysely@0.22.1";
 import { createPool, Options as PoolOptions, Pool } from "https://esm.sh/generic-pool@3.9.0";
 
 class PostgresPoolClient {
