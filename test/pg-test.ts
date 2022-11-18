@@ -1,9 +1,4 @@
-import {
-  CamelCasePlugin,
-  Kysely,
-  Migrator,
-  PostgresDialect,
-} from "https://esm.sh/kysely@0.22.0";
+import { CamelCasePlugin, Kysely, Migrator, PostgresDialect } from "https://esm.sh/@shopstic/kysely@0.22.0";
 import { PostgresPool } from "../src/drivers/postgres.ts";
 import { Database, run, upPostgres } from "./shared.ts";
 

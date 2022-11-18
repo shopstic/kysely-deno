@@ -1,9 +1,4 @@
-import {
-  CompiledQuery,
-  Kysely,
-  Migrator,
-  SqliteDialect,
-} from "https://esm.sh/kysely@0.22.0";
+import { CompiledQuery, Kysely, Migrator, SqliteDialect } from "https://esm.sh/@shopstic/kysely@0.22.0";
 import { Database, run, upSqlite } from "./shared.ts";
 import { SqliteDatabase } from "../src/drivers/sqlite.ts";
 
