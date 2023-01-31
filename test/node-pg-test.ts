@@ -1,25 +1,20 @@
+// @deno-types="npm:@types/pg"
+import pg from "npm:pg";
 import { CamelCasePlugin, Kysely, Migrator, PostgresDialect } from "https://esm.sh/kysely@0.23.4?pin=v106";
-import { PostgresPool } from "../src/drivers/postgres.ts";
 import { Database, run, upPostgres } from "./shared.ts";
 
-const pgPool = new PostgresPool({
-  user: "postgres",
-  password: "mysecretpassword",
-  database: "postgres",
-  hostname: "localhost",
-  port: 5432,
-}, {
-  max: 10,
-  maxWaitingClients: 10,
-  testOnBorrow: true,
-  acquireTimeoutMillis: 5000,
-  evictionRunIntervalMillis: 1000,
-  idleTimeoutMillis: 5000,
-});
+const { Pool } = pg;
 
+console.log("one");
 const db = new Kysely<Database>({
   dialect: new PostgresDialect({
-    pool: pgPool,
+    pool: new Pool({
+      user: "postgres",
+      password: "mysecretpassword",
+      database: "postgres",
+      host: "localhost",
+      port: 5432,
+    }),
   }),
   log(event) {
     if (event.level === "query") {
@@ -28,6 +23,7 @@ const db = new Kysely<Database>({
   },
   plugins: [new CamelCasePlugin()],
 });
+console.log("two");
 
 export async function down(db: Kysely<unknown>): Promise<void> {
   await db.schema.dropTable("pet").execute();
@@ -48,7 +44,9 @@ const migrator = new Migrator({
   },
 });
 
+console.log("three");
 const migrationResult = await migrator.migrateToLatest();
+console.log("four");
 
 if (migrationResult.error) {
   console.log("Migration failed", migrationResult);

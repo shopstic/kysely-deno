@@ -1,5 +1,5 @@
 {
-  description = "Test";
+  description = "kysely-deno";
 
   inputs = {
     hotPot.url = "github:shopstic/nix-hot-pot";
@@ -26,6 +26,8 @@
             "[typescript]" = {
               "editor.defaultFormatter" = "denoland.vscode-deno";
               "editor.formatOnSave" = true;
+              "editor.suggest.insertMode" = "replace";
+              "editor.inlayHints.enabled" = "offUnlessPressed";
             };
             "nix.enableLanguageServer" = true;
             "nix.formatterPath" = pkgs.nixpkgs-fmt + "/bin/nixpkgs-fmt";

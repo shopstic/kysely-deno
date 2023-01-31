@@ -9,12 +9,12 @@ code_quality() {
 }
 
 update_cache() {
-  deno cache --lock=lock.json ./src/mod.ts
+  deno cache --lock=deno.lock ./src/mod.ts
 }
 
 update_lock() {
   deno cache --reload ./src/mod.ts
-  deno cache ./src/mod.ts --lock ./lock.json --lock-write
+  deno cache ./src/mod.ts --lock ./deno.lock --lock-write
 }
 
 "$@"

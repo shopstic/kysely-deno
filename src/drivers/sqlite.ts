@@ -1,14 +1,14 @@
 import {
   SqliteDatabase as ISqliteDatabase,
   SqliteStatement as ISqliteStatement,
-} from "https://esm.sh/@shopstic/kysely@0.22.1";
+} from "https://esm.sh/kysely@0.23.4?pin=v106";
 import {
   BindValue,
   Database as Sqlite3Database,
   DatabaseOpenOptions as Sqlite3DatabaseOpenOptions,
   Statement as Sqlite3Statement,
-} from "https://deno.land/x/sqlite3@0.6.1/mod.ts";
-import ffi from "https://deno.land/x/sqlite3@0.6.1/src/ffi.ts";
+} from "https://deno.land/x/sqlite3@0.7.3/mod.ts";
+import ffi from "https://deno.land/x/sqlite3@0.7.3/src/ffi.ts";
 
 class SqliteStatementImpl implements ISqliteStatement {
   constructor(readonly statement: Sqlite3Statement) {}

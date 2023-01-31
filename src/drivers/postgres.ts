@@ -3,8 +3,8 @@ import {
   PostgresPool as IPostgresPool,
   PostgresPoolClient as IPostgresPoolClient,
   PostgresQueryResult as IPostgresQueryResult,
-} from "https://esm.sh/@shopstic/kysely@0.22.1";
-import { createPool, Options as PoolOptions, Pool } from "https://esm.sh/generic-pool@3.9.0";
+} from "https://esm.sh/kysely@0.23.4?pin=v106";
+import { createPool, Options as PoolOptions, Pool } from "https://esm.sh/generic-pool@3.9.0?pin=v106";
 
 class PostgresPoolClient {
   constructor(readonly client: Client, readonly onRelease: () => void) {}
@@ -23,7 +23,7 @@ class PostgresPoolClient {
 }
 
 // deno-lint-ignore no-explicit-any
-const poolProto = (Pool.prototype as any);
+const poolProto = Pool.prototype as any;
 poolProto._scheduleEvictorRun = function () {
   if (this._config.evictionRunIntervalMillis > 0) {
     this._scheduledEviction = setTimeout(() => {
